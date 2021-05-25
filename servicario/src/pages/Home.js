@@ -23,10 +23,30 @@ import './Home.css';
 //5. Access to lifecycle functions
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: 'Super Message!!!',
+    };
+  }
+  // state = {
+  //   message: 'Super Message !!!',
+  // };
+
+  // Lifecycle function
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ message: 'I am updated Message' });
+    }, 1000);
+  }
+  // Lifecycle function
+  //Render is called every time the state is updated
   render() {
+    const { message } = this.state;
     return (
       <div className="container">
         <h1>I am HomePage class</h1>
+        <p>{message}</p>
       </div>
     );
   }
