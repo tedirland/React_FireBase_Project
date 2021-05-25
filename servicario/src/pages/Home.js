@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 
-//Functional Components //
-//1. Smaller components
-// 2. Usually Presentational
-// 3. In most cases, reusable components
-// 4. Should focus on one responsibility
-
 const Home = () => {
   const [message, setMessage] = useState('Super Message!!');
+  const [count, setCount] = useState(0);
+  // const [test, setTest] = useState(0);
+
   // const messageState = useState('Super Message!!');
   // const message = messageState[0];
   // const setMessage = messageState[1];
@@ -19,11 +16,21 @@ const Home = () => {
     setTimeout(() => {
       setMessage('I am updated Message!');
     }, 1000);
-  }, [message]);
+  }, []);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+  const decrement = () => {
+    setCount(count - 1);
+  };
   return (
     <div className="container">
       <h1>Home Page</h1>
       <p>{message}</p>
+      <button onClick={increment}>Increment</button>
+      <div className="counter">{count}</div>
+      <button onClick={decrement}>Deccrement</button>
     </div>
   );
 };
